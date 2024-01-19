@@ -62,7 +62,13 @@ function TeamCard({
   const bg = useColorModeValue("gray.50", "gray.900");
 
   return (
-    <VStack gap="6" p={{ base: "5", md: "6" }} bg={bg} h="full">
+    <VStack
+      gap="6"
+      p={{ base: "5", md: "6" }}
+      bg={bg}
+      h="full"
+      borderRadius="md"
+    >
       <IconBox icon={icon} />
       <VStack gap={{ base: "1", md: "1" }} textAlign="center">
         <Heading
@@ -126,6 +132,7 @@ function TeamSection() {
                 variants={avatarVariants}
                 initial="offscreen"
                 whileInView="onscreen"
+                viewport={{ once: true }}
                 display="inline"
                 w="60px"
                 borderRadius="full"
@@ -140,6 +147,7 @@ function TeamSection() {
                 variants={avatarVariants}
                 initial="offscreen"
                 whileInView="onscreen"
+                viewport={{ once: true }}
                 display="inline"
                 w="60px"
                 borderRadius="full"

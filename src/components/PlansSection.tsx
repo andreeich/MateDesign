@@ -2,7 +2,6 @@ import {
   As,
   Badge,
   Box,
-  Button,
   Divider,
   HStack,
   Heading,
@@ -15,6 +14,7 @@ import {
 // @ts-expect-error Splide Type Bug
 import { Splide, SplideTrack, SplideSlide } from "@splidejs/react-splide";
 import { CheckIcon, ArrowLeft, ArrowRight } from "./Icons";
+import Button from "./Button";
 // Default theme
 import "@splidejs/react-splide/css/core";
 
@@ -140,7 +140,7 @@ const plans: Plan[] = [
 
 function PlanCard({ heading, text, badge, price, list }: Plan) {
   return (
-    <Stack bg="white" borderRadius="xl" w="full" h="full">
+    <Stack bg="base.white" borderRadius="xl" w="full" h="full">
       <Stack gap="4" px="8" pb="8" pt="10" align="start">
         <Stack gap="2" align="start" w="full">
           <HStack justify="space-between" w="full">

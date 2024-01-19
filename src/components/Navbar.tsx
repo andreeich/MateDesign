@@ -1,9 +1,7 @@
 import {
   Container,
   HStack,
-  Link,
   Image,
-  Button,
   Show,
   Icon,
   useBoolean,
@@ -11,12 +9,16 @@ import {
   Box,
   Divider,
   Hide,
+  Link,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import { motion, AnimatePresence } from "framer-motion";
 import { XClose, Menu01, ChevronUp } from "./Icons";
 import { MotionDiv } from "./MotionElement";
+import Button from "./Button";
 
 import logoFull from "../assets/logo-full.svg";
+import logoFullWhite from "../assets/logo-full-white.svg";
 
 const menuVariants = {
   hidden: {
@@ -43,6 +45,9 @@ const swipePower = (offset: number, velocity: number) => {
 
 function Navbar() {
   const [isOpen, setIsOpen] = useBoolean(false);
+  const bg = useColorModeValue("base.white", "gray.950");
+  const logo = useColorModeValue(logoFull, logoFullWhite);
+  const collapseIconColor = useColorModeValue("gray.300", "gray.600");
 
   return (
     <Box
@@ -51,6 +56,10 @@ function Navbar() {
       inset="0"
       // backgroundImage="radial-gradient(rgba(0, 0, 0, 0) 1px, white 1px)"
       backgroundImage="linear-gradient(180deg, rgba(255,255,255,1) 20%, rgba(255,255,255,0.8) 60%, rgba(255,255,255,0.2) 100%);"
+      _dark={{
+        backgroundImage:
+          "linear-gradient(180deg, rgba(12,17,29,1) 20%, rgba(12,17,29,0.8) 60%, rgba(12,17,29,0.2) 100%);",
+      }}
       // backgroundSize="4px 4px"
       backdropFilter="blur(4px)"
       h="fit-content"
@@ -58,16 +67,16 @@ function Navbar() {
       // borderBottom="1px solid"
       shadow="xs"
       // borderColor="gray.200"
-      // bg="white"
+      // bg="base.white"
     >
       <Container
         position="relative"
-        bg={isOpen ? "white" : "transparent"}
+        bg={isOpen ? bg : "transparent"}
         transition="0.2s background ease-in"
       >
         <HStack h={{ base: "4.5rem", md: "5rem" }} justify="space-between">
           <Link>
-            <Image src={logoFull} w="142px" />
+            <Image src={logo} w="142px" />
           </Link>
           <Show above="md">
             <HStack gap={{ base: "lg", lg: "4xl" }}>
@@ -126,7 +135,7 @@ function Navbar() {
             top="0"
             left="0"
             shadow="lg"
-            bg="white"
+            bg={bg}
             zIndex={-1}
             variants={menuVariants}
             initial={false}
@@ -166,7 +175,7 @@ function Navbar() {
                 Get Started
               </Button>
               <HStack h="2rem" justify="center">
-                <Icon as={ChevronUp} color="gray.200" />
+                <Icon as={ChevronUp} color={collapseIconColor} />
               </HStack>
             </Box>
           </MotionDiv>

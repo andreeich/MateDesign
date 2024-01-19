@@ -65,9 +65,9 @@ export const CheckIcon = createIcon({
     <path
       d="M7.5 12L10.5 15L16.5 9"
       stroke="#4E7A00"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />,
   ],
 });

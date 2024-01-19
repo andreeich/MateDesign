@@ -1,5 +1,4 @@
 import {
-  Box,
   Container,
   Heading,
   VStack,
@@ -11,53 +10,12 @@ import {
   GridItem,
   Hide,
   Show,
+  useColorModeValue,
+  As,
 } from "@chakra-ui/react";
 import avatar from "../assets/avatar.png";
 import { CameraOff, Atom02 } from "./Icons";
-
-function IconBox({ icon, ...props }) {
-  return (
-    <Flex
-      w={["3rem"]}
-      h={["3rem"]}
-      bg="brand.600"
-      color="gray.950"
-      align="center"
-      justify="center"
-      borderRadius="lg"
-      {...props}
-    >
-      <Icon as={icon} />
-    </Flex>
-  );
-}
-
-function TeamCard({ icon, heading, text }) {
-  return (
-    <VStack gap="6" p={{ base: "5", md: "6" }} bg="gray.50" h="full">
-      <IconBox icon={icon} />
-      <VStack gap={{ base: "1", md: "1" }} textAlign="center">
-        <Heading
-          as="h5"
-          fontSize={{ base: "text.xl", md: "display.sm" }}
-          lineHeight={{ base: "text.xl", md: "display.sm" }}
-          fontWeight="semibold"
-          color="gray.900"
-        >
-          {heading}
-        </Heading>
-        <Text
-          fontSize={{ base: "text.lg" }}
-          lineHeight={{ base: "text.lg" }}
-          color="gray.600"
-          whiteSpace={{ base: "normal", lg: "pre-line" }}
-        >
-          {text}
-        </Text>
-      </VStack>
-    </VStack>
-  );
-}
+import { Variants, motion } from "framer-motion";
 
 const teams = [
   {
@@ -74,6 +32,76 @@ const teams = [
   },
 ];
 
+function IconBox({ icon, ...props }: { icon: As }) {
+  const bg = useColorModeValue("brand.600", "brand.500");
+  return (
+    <Flex
+      w={["3rem"]}
+      h={["3rem"]}
+      bg={bg}
+      color="gray.950"
+      align="center"
+      justify="center"
+      borderRadius="lg"
+      {...props}
+    >
+      <Icon as={icon} />
+    </Flex>
+  );
+}
+
+function TeamCard({
+  icon,
+  heading,
+  text,
+}: {
+  icon: As;
+  heading: string;
+  text: string;
+}) {
+  const bg = useColorModeValue("gray.50", "gray.900");
+
+  return (
+    <VStack gap="6" p={{ base: "5", md: "6" }} bg={bg} h="full">
+      <IconBox icon={icon} />
+      <VStack gap={{ base: "1", md: "1" }} textAlign="center">
+        <Heading
+          as="h5"
+          fontSize={{ base: "text.xl", md: "display.sm" }}
+          lineHeight={{ base: "text.xl", md: "display.sm" }}
+          fontWeight="semibold"
+          variant="primary"
+        >
+          {heading}
+        </Heading>
+        <Text
+          fontSize={{ base: "text.lg" }}
+          lineHeight={{ base: "text.lg" }}
+          variant="tertiary"
+          whiteSpace={{ base: "normal", lg: "pre-line" }}
+        >
+          {text}
+        </Text>
+      </VStack>
+    </VStack>
+  );
+}
+
+const avatarVariants: Variants = {
+  offscreen: {
+    x: 188,
+    rotate: 360,
+  },
+  onscreen: {
+    x: 0,
+    rotate: 0,
+    transition: {
+      type: "spring",
+      duration: 1.5,
+    },
+  },
+};
+
 function TeamSection() {
   return (
     <VStack
@@ -88,23 +116,41 @@ function TeamSection() {
             lineHeight={{ base: "display.lg", md: "display.xl" }}
             fontWeight="semibold"
             letterSpacing="tight"
-            color="gray.900"
+            variant="primary"
             alignSelf="start"
           >
             Design{" "}
-            <Hide above="md" display="inline">
-              <Image display="inline" w="60px" src={avatar} />
+            <Hide above="md">
+              <Image
+                as={motion.img}
+                variants={avatarVariants}
+                initial="offscreen"
+                whileInView="onscreen"
+                display="inline"
+                w="60px"
+                borderRadius="full"
+                src={avatar}
+              />
             </Hide>
             dreamteam
             <br />– comes true{" "}
-            <Show above="md" display="inline">
-              <Image display="inline" w="60px" src={avatar} />
+            <Show above="md">
+              <Image
+                as={motion.img}
+                variants={avatarVariants}
+                initial="offscreen"
+                whileInView="onscreen"
+                display="inline"
+                w="60px"
+                borderRadius="full"
+                src={avatar}
+              />
             </Show>
           </Heading>
           <Text
             fontSize={{ base: "text.lg", md: "text.xl" }}
             lineHeight={{ base: "text.lg", md: "text.xl" }}
-            color="gray.600"
+            variant="tertiary"
             textAlign="center"
             alignSelf="center"
           >

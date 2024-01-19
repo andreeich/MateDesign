@@ -8,15 +8,18 @@ import {
   Icon,
   GridItem,
   As,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import { AlertCircle } from "./Icons";
 
 function IconBox({ icon, ...props }: { icon: As }) {
+  const bg = useColorModeValue("brand.600", "brand.500");
   return (
     <Flex
       w={["2.5rem", "2.5rem", "3rem"]}
       h={["2.5rem", "2.5rem", "3rem"]}
-      bg="brand.600"
+      // bg="brand.600"
+      bg={bg}
       color="gray.950"
       align="center"
       justify="center"
@@ -45,7 +48,7 @@ function FeatureCard({
           as="h5"
           fontSize={{ base: "text.lg", md: "text.xl" }}
           lineHeight={{ base: "text.lg", md: "text.xl" }}
-          color="gray.900"
+          variant="primary"
           fontWeight="semibold"
         >
           {heading}
@@ -53,7 +56,7 @@ function FeatureCard({
         <Text
           fontSize={{ base: "text.md" }}
           lineHeight={{ base: "text.md" }}
-          color="gray.600"
+          variant="tertiary"
           whiteSpace={{ base: "normal", md: "pre-line" }}
         >
           {text}
@@ -104,7 +107,7 @@ function FeaturesSection() {
             <Text
               fontSize={{ base: "text.md" }}
               lineHeight={{ base: "text.md" }}
-              color="brand.700"
+              variant="brandSecondary"
               fontWeight="semibold"
             >
               Features
@@ -113,7 +116,7 @@ function FeaturesSection() {
               as="h2"
               fontSize={{ base: "display.lg", md: "display.xl" }}
               lineHeight={{ base: "display.lg", md: "display.xl" }}
-              color="gray.900"
+              variant="primary"
               fontWeight="semibold"
               letterSpacing="tight"
             >
@@ -123,7 +126,7 @@ function FeaturesSection() {
           <Text
             fontSize={{ base: "text.lg", md: "text.xl" }}
             lineHeight={{ base: "text.lg", md: "text.xl" }}
-            color="gray.600"
+            variant="tertiary"
           >
             Powerful, self-serve product and growth analytics to help you
             convert, engage, and retain more users. Trusted by over 4,000

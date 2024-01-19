@@ -1,6 +1,22 @@
 import { extendTheme, defineStyleConfig } from "@chakra-ui/react";
 import { accordionAnatomy } from "@chakra-ui/anatomy";
 import { createMultiStyleConfigHelpers } from "@chakra-ui/react";
+import { mode } from "@chakra-ui/theme-tools";
+
+// config
+const config = {
+  initialColorMode: "system",
+  useSystemColorMode: true,
+};
+const styles = {
+  // @ts-expect-error props
+  global: (props) => ({
+    body: {
+      bg: mode("base.white", "gray.950")(props),
+      color: mode("gray.900", "gray.50")(props),
+    },
+  }),
+};
 
 // utils
 const colors = {
@@ -329,7 +345,7 @@ const Button = defineStyleConfig({
   },
   variants: {
     primary: {
-      color: "gray.950",
+      color: "gray.900",
       border: "1px solid",
       borderColor: "brand.600",
       bg: "brand.600",
@@ -345,6 +361,20 @@ const Button = defineStyleConfig({
         color: "gray.400",
         bg: "gray.100",
         borderColor: "gray.200",
+      },
+      _dark: {
+        color: "gray.950",
+        borderColor: "brand.500",
+        bg: "brand.500",
+        _hover: {
+          borderColor: "brand.600",
+          bg: "brand.600",
+        },
+        _disabled: {
+          color: "gray.800",
+          bg: "gray.500",
+          borderColor: "gray.500",
+        },
       },
     },
     secondary: {
@@ -365,6 +395,20 @@ const Button = defineStyleConfig({
         bg: "gray.100",
         borderColor: "gray.200",
       },
+      _dark: {
+        color: "gray.900",
+        borderColor: "gray.700",
+        bg: "gray.50",
+        // _hover: {
+        //   borderColor: "brand.700",
+        //   bg: "brand.700",
+        // },
+        _disabled: {
+          color: "gray.600",
+          bg: "gray.900",
+          borderColor: "gray.800",
+        },
+      },
     },
     tertiary: {
       color: "gray.800",
@@ -381,6 +425,17 @@ const Button = defineStyleConfig({
       _disabled: {
         color: "gray.400",
       },
+      _dark: {
+        color: "gray.200",
+        borderColor: "gray.200",
+        bg: "gray.950",
+        _hover: {
+          color: "gray.300",
+        },
+        _disabled: {
+          color: "gray.600",
+        },
+      },
     },
     xclose: {
       p: "md",
@@ -393,6 +448,17 @@ const Button = defineStyleConfig({
       _focus: {
         bg: "gray.50",
         shadow: "ring-gray",
+      },
+      _dark: {
+        color: "gray.300",
+        _hover: {
+          color: "gray.200",
+          bg: "gray.800",
+        },
+        _focus: {
+          bg: "gray.800",
+          shadow: "ring-gray",
+        },
       },
     },
     arrow: {
@@ -415,14 +481,23 @@ const Button = defineStyleConfig({
         bg: "transparent",
       },
     },
-    clearDark: {
+    clear: {
       p: "0",
-      color: "gray.300",
+      color: "gray.700",
       _hover: {
-        color: "gray.200",
+        color: "gray.800",
       },
       _disabled: {
-        color: "gray.600",
+        color: "gray.500",
+      },
+      _dark: {
+        color: "gray.300",
+        _hover: {
+          color: "gray.200",
+        },
+        _disabled: {
+          color: "gray.500",
+        },
       },
     },
   },
@@ -465,16 +540,14 @@ const Link = defineStyleConfig({
       _disabled: {
         color: "gray.400",
       },
-    },
-    grayDark: {
-      fontWeight: "semibold",
-      color: "gray.300",
-      _hover: {
-        color: "gray.200",
-        textDecor: "none",
-      },
-      _disabled: {
-        color: "gray.600",
+      _dark: {
+        color: "gray.300",
+        _hover: {
+          color: "gray.200",
+        },
+        _disabled: {
+          color: "gray.600",
+        },
       },
     },
     underline: {
@@ -486,16 +559,34 @@ const Link = defineStyleConfig({
       _disabled: {
         color: "gray.400",
       },
+      _dark: {
+        color: "gray.300",
+        _hover: {
+          color: "gray.200",
+        },
+        _disabled: {
+          color: "gray.600",
+        },
+      },
     },
-    lightDark: {
+    light: {
       fontWeight: "normal",
       textDecor: "none",
-      color: "gray.400",
+      color: "gray.600",
       _hover: {
-        color: "gray.300",
+        color: "gray.700",
       },
       _disabled: {
-        color: "gray.700",
+        color: "gray.500",
+      },
+      _dark: {
+        color: "gray.400",
+        _hover: {
+          color: "gray.300",
+        },
+        _disabled: {
+          color: "gray.500",
+        },
       },
     },
   },
@@ -521,7 +612,10 @@ const Container = defineStyleConfig({
 });
 const Divider = defineStyleConfig({
   baseStyle: {
-    borderColor: "gray.200",
+    borderColor: "gray.300",
+    _dark: {
+      borderColor: "gray.600",
+    },
   },
 });
 const Badge = defineStyleConfig({
@@ -582,6 +676,70 @@ const Badge = defineStyleConfig({
     variant: "gray",
   },
 });
+const Text = defineStyleConfig({
+  variants: {
+    primary: {
+      color: "gray.900",
+      _dark: {
+        color: "gray.50",
+      },
+    },
+    secondary: {
+      color: "gray.700",
+      _dark: {
+        color: "gray.300",
+      },
+    },
+    tertiary: {
+      color: "gray.600",
+      _dark: {
+        color: "gray.400",
+      },
+    },
+    quaternary: {
+      color: "gray.500",
+      _dark: {
+        color: "gray.400",
+      },
+    },
+    white: {
+      color: "base.white",
+      _dark: {
+        color: "base.white",
+      },
+    },
+    disabled: {
+      color: "gray.500",
+      _dark: {
+        color: "gray.500",
+      },
+    },
+    placeholder: {
+      color: "gray.500",
+      _dark: {
+        color: "gray.400",
+      },
+    },
+    brandPrimary: {
+      color: "brand.900",
+      _dark: {
+        color: "gray.50",
+      },
+    },
+    brandSecondary: {
+      color: "brand.700",
+      _dark: {
+        color: "gray.300",
+      },
+    },
+    brandTertiary: {
+      color: "brand.600",
+      _dark: {
+        color: "gray.400",
+      },
+    },
+  },
+});
 
 const {
   definePartsStyle: definePartsStyleAccordion,
@@ -612,6 +770,10 @@ const baseStyle = definePartsStyleAccordion({
     _hover: {
       bg: "transparent",
     },
+
+    _dark: {
+      color: "gray.50",
+    },
   },
   panel: {
     pt: "2",
@@ -621,6 +783,9 @@ const baseStyle = definePartsStyleAccordion({
     fontSize: "text.md",
     lineHeight: "text.md",
     color: "gray.600",
+    _dark: {
+      color: "gray.400",
+    },
   },
   icon: {
     color: "violet.400",
@@ -629,6 +794,9 @@ const baseStyle = definePartsStyleAccordion({
 export const Accordion = defineMultiStyleConfigAccordion({ baseStyle });
 
 const theme = extendTheme({
+  // config
+  config,
+  styles,
   // utils
   colors,
   fonts,
@@ -648,6 +816,8 @@ const theme = extendTheme({
     Divider,
     Badge,
     Accordion,
+    Text,
+    Heading: Text,
   },
 });
 

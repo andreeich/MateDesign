@@ -8,6 +8,7 @@ import {
   Stack,
 } from "@chakra-ui/react";
 import logo from "../assets/logo-full-white-xl.svg";
+import { Variants, motion } from "framer-motion";
 
 type PercentItem = {
   id?: number;
@@ -16,6 +17,87 @@ type PercentItem = {
   percent: number;
   orientation: string;
   type: string;
+};
+
+const percentBars = {
+  left: [
+    {
+      id: 1,
+      heading: "Manager",
+      text: "Oversight of deadlines, statuses and support",
+      percent: 15,
+      orientation: "left",
+      type: "top",
+    },
+    {
+      id: 2,
+      heading: "Art-director",
+      text: "Designers with 8+ years of experience will control the quality of work before completion",
+      percent: 15,
+      orientation: "left",
+      type: "middle",
+    },
+    {
+      id: 3,
+      heading: "Any designer",
+      text: "Specialized Middle+ level designers, for any task from logo design, to service design",
+      percent: 60,
+      orientation: "left",
+      type: "middle",
+    },
+    {
+      id: 4,
+      heading: "Additional Support",
+      text: "Experts in related fields on request",
+      percent: 10,
+      orientation: "left",
+      type: "bottom",
+    },
+  ],
+  right: [
+    {
+      id: 1,
+      heading: "Taxes and benefits",
+      text: "Pay taxes for the designer and provide him with equipment, social security and bonuses",
+      percent: 35,
+      orientation: "right",
+      type: "top",
+    },
+    {
+      id: 2,
+      heading: "Middle Designer",
+      text: "Middle designer who is focused on only 1 specialty",
+      percent: 65,
+      orientation: "right",
+      type: "bottom",
+    },
+  ],
+};
+
+const percentBarVariants: Variants = {
+  open: {
+    transition: { staggerChildren: 0.17, delayChildren: 0.2 },
+  },
+  closed: {
+    transition: { staggerChildren: 0.05, staggerDirection: -1 },
+  },
+};
+
+const percentItemVariants: Variants = {
+  open: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      y: { stiffness: 1000, velocity: -100 },
+    },
+  },
+  closed: {
+    y: -50,
+    opacity: 0,
+    transition: {
+      y: { stiffness: 1000 },
+    },
+  },
 };
 
 function PercentItem({
@@ -27,6 +109,8 @@ function PercentItem({
 }: PercentItem) {
   return (
     <HStack
+      as={motion.div}
+      variants={percentItemVariants}
       justify="space-between"
       w="full"
       minH={`${(100 / 15 / 16) * percent}em`}
@@ -87,61 +171,6 @@ function PercentItem({
   );
 }
 
-const percentBars = {
-  left: [
-    {
-      id: 1,
-      heading: "Manager",
-      text: "Oversight of deadlines, statuses and support",
-      percent: 15,
-      orientation: "left",
-      type: "top",
-    },
-    {
-      id: 2,
-      heading: "Art-director",
-      text: "Designers with 8+ years of experience will control the quality of work before completion",
-      percent: 15,
-      orientation: "left",
-      type: "middle",
-    },
-    {
-      id: 3,
-      heading: "Any designer",
-      text: "Specialized Middle+ level designers, for any task from logo design, to service design",
-      percent: 60,
-      orientation: "left",
-      type: "middle",
-    },
-    {
-      id: 4,
-      heading: "Additional Support",
-      text: "Experts in related fields on request",
-      percent: 10,
-      orientation: "left",
-      type: "bottom",
-    },
-  ],
-  right: [
-    {
-      id: 1,
-      heading: "Taxes and benefits",
-      text: "Pay taxes for the designer and provide him with equipment, social security and bonuses",
-      percent: 35,
-      orientation: "right",
-      type: "top",
-    },
-    {
-      id: 2,
-      heading: "Middle Designer",
-      text: "Middle designer who is focused on only 1 specialty",
-      percent: 65,
-      orientation: "right",
-      type: "bottom",
-    },
-  ],
-};
-
 function ProfitSection() {
   return (
     <VStack gap="16" as="section" py="24">
@@ -179,8 +208,16 @@ function ProfitSection() {
             </Text>
           </HStack>
         </HStack>
-        <HStack gap="2" align="stretch">
-          <Stack gap="0">
+        <HStack
+          gap="2"
+          align="stretch"
+          as={motion.div}
+          variants={percentBarVariants}
+          initial="closed"
+          whileInView="open"
+          viewport={{ once: true }}
+        >
+          <Stack gap="0" as={motion.div}>
             {percentBars.left.map((percent) => (
               <PercentItem
                 key={percent.id}
@@ -192,7 +229,13 @@ function ProfitSection() {
               />
             ))}
           </Stack>
-          <Stack gap="0">
+          <Stack
+            gap="0"
+            as={motion.div}
+            // variants={percentBarVariants}
+            // initial="closed"
+            // whileInView="open"
+          >
             {percentBars.right.map((percent) => (
               <PercentItem
                 key={percent.id}

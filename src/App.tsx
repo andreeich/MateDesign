@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <Box as="main" mt={{ base: "4.5rem", md: "5rem" }}>
+      <Box as="main" mt={{ base: "4.5rem", md: "5rem" }} overflow="hidden">
         <HeaderSection />
         <FeaturesSection />
         <TeamSection />

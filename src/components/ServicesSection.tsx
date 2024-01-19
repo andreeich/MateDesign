@@ -68,7 +68,7 @@ function ServicesSection() {
           lineHeight={{ base: "display.lg", md: "display.xl" }}
           fontWeight="semibold"
           letterSpacing="tight"
-          color="gray.900"
+          variant="primary"
         >
           Website, apps,
           <br /> branding & more...
@@ -92,7 +92,7 @@ function ServicesSection() {
                     as="li"
                     fontSize="text.lg"
                     lineHeight="text.lg"
-                    color="gray.600"
+                    variant="tertiary"
                   >
                     {item.text}
                   </Text>

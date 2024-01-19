@@ -4,13 +4,13 @@ import {
   Heading,
   Text,
   Stack,
-  Link,
   Accordion,
   AccordionItem,
   AccordionButton,
   AccordionPanel,
   Grid,
   GridItem,
+  Link,
 } from "@chakra-ui/react";
 import { Minus, Plus } from "./Icons";
 import { motion } from "framer-motion";
@@ -44,7 +44,7 @@ const faqs: FaqAccordionItem[] = [
   },
   {
     id: 5,
-    heading: "HWhat if I don't like the design?",
+    heading: "What if I don't like the design?",
     text: "If you are a new customer, you need to submit an application on our website, after which we will contact you and prepare everything to get you started.\n\nIf you are already our client, MateDesign offers a lot of flexibility in how you request a design. You can email us at hello@matedesign.co, or put the task in the backlog in ActiveCollab. Some common ways clients request designs is directly via ActiveCollab, sharing Google Docs or wireframes, or even recording a brief Loom video (for those who prefer not to write their briefs out). Basically, if it can be linked to or shared in email or ActiveCollab, it's fair game.",
   },
   {
@@ -116,7 +116,8 @@ function FaqSection() {
                 <Text
                   fontSize={{ base: "text.sm", md: "text.md" }}
                   lineHeight={{ base: "text.sm", md: "text.md" }}
-                  color="brand.700"
+                  fontWeight="semibold"
+                  variant="brandSecondary"
                 >
                   Support
                 </Text>
@@ -125,7 +126,7 @@ function FaqSection() {
                   lineHeight={{ base: "display.md", md: "display.xl" }}
                   fontWeight="semibold"
                   letterSpacing="tight"
-                  color="gray.900"
+                  variant="primary"
                 >
                   FAQs
                 </Heading>
@@ -133,7 +134,7 @@ function FaqSection() {
               <Text
                 fontSize={{ base: "text.lg" }}
                 lineHeight={{ base: "text.lg" }}
-                color="gray.600"
+                variant="tertiary"
               >
                 Didn't find the answer? <br />
                 Shoot us an email{" "}

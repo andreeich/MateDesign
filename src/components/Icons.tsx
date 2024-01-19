@@ -40,6 +40,17 @@ export const ArrowRight = createIcon({
   viewBox: "0 0 24 24",
   d: "M4 13h16c.55 0 1-.45 1-1 0-.56-.45-1-1-1H4c-.56 0-1 .44-1 1 0 .55.44 1 1 1Zm16.7-1.71l-6-6c-.4-.4-1.03-.4-1.42 0 -.4.39-.4 1.02 0 1.41l6 6c.39.39 1.02.39 1.41 0 .39-.4.39-1.03 0-1.42Zm-1.42 0l-6 6c-.4.39-.4 1.02 0 1.41 .39.39 1.02.39 1.41 0l6-6c.39-.4.39-1.03 0-1.42 -.4-.4-1.03-.4-1.42 0Z",
 });
+export const Minus = createIcon({
+  displayName: "Minus",
+  viewBox: "0 0 24 24",
+  d: "M5 13h14c.55 0 1-.45 1-1 0-.56-.45-1-1-1H5c-.56 0-1 .44-1 1 0 .55.44 1 1 1Z",
+});
+export const Plus = createIcon({
+  displayName: "Plus",
+  viewBox: "0 0 24 24",
+  d: "M11 5v14c0 .55.44 1 1 1 .55 0 1-.45 1-1V5c0-.56-.45-1-1-1 -.56 0-1 .44-1 1Zm-6 8h14c.55 0 1-.45 1-1 0-.56-.45-1-1-1H5c-.56 0-1 .44-1 1 0 .55.44 1 1 1Z",
+});
+
 export const CheckIcon = createIcon({
   displayName: "CheckIcon",
   viewBox: "0 0 24 24",

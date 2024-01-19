@@ -1,4 +1,6 @@
 import { extendTheme, defineStyleConfig } from "@chakra-ui/react";
+import { accordionAnatomy } from "@chakra-ui/anatomy";
+import { createMultiStyleConfigHelpers } from "@chakra-ui/react";
 
 // utils
 const colors = {
@@ -549,6 +551,53 @@ const Badge = defineStyleConfig({
   },
 });
 
+const {
+  definePartsStyle: definePartsStyleAccordion,
+  defineMultiStyleConfig: defineMultiStyleConfigAccordion,
+} = createMultiStyleConfigHelpers(accordionAnatomy.keys);
+
+const baseStyle = definePartsStyleAccordion({
+  root: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "8",
+  },
+  container: {
+    border: "none",
+  },
+  button: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: "2",
+    textAlign: "left",
+    p: "0",
+    fontSize: { base: "text.lg", md: "text.xl" },
+    lineHeight: { base: "text.lg", md: "text.xl" },
+    fontWeight: "medium",
+    color: "gray.900",
+    bg: "transparent",
+
+    _hover: {
+      bg: "transparent",
+    },
+  },
+  panel: {
+    pt: "2",
+    pb: "0",
+    pl: "0",
+    pr: { base: "8", md: "12" },
+    fontSize: "text.md",
+    lineHeight: "text.md",
+    color: "gray.600",
+  },
+  icon: {
+    color: "violet.400",
+  },
+});
+
+export const Accordion = defineMultiStyleConfigAccordion({ baseStyle });
+
 const theme = extendTheme({
   // utils
   colors,
@@ -568,6 +617,7 @@ const theme = extendTheme({
     Container,
     Divider,
     Badge,
+    Accordion,
   },
 });
 

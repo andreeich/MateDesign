@@ -415,6 +415,16 @@ const Button = defineStyleConfig({
         bg: "transparent",
       },
     },
+    clearDark: {
+      p: "0",
+      color: "gray.300",
+      _hover: {
+        color: "gray.200",
+      },
+      _disabled: {
+        color: "gray.600",
+      },
+    },
   },
   defaultProps: {
     size: "sm",
@@ -456,6 +466,17 @@ const Link = defineStyleConfig({
         color: "gray.400",
       },
     },
+    grayDark: {
+      fontWeight: "semibold",
+      color: "gray.300",
+      _hover: {
+        color: "gray.200",
+        textDecor: "none",
+      },
+      _disabled: {
+        color: "gray.600",
+      },
+    },
     underline: {
       textDecor: "underline",
       color: "gray.600",
@@ -464,6 +485,17 @@ const Link = defineStyleConfig({
       },
       _disabled: {
         color: "gray.400",
+      },
+    },
+    lightDark: {
+      fontWeight: "normal",
+      textDecor: "none",
+      color: "gray.400",
+      _hover: {
+        color: "gray.300",
+      },
+      _disabled: {
+        color: "gray.700",
       },
     },
   },
@@ -555,7 +587,6 @@ const {
   definePartsStyle: definePartsStyleAccordion,
   defineMultiStyleConfig: defineMultiStyleConfigAccordion,
 } = createMultiStyleConfigHelpers(accordionAnatomy.keys);
-
 const baseStyle = definePartsStyleAccordion({
   root: {
     display: "flex",
@@ -595,7 +626,6 @@ const baseStyle = definePartsStyleAccordion({
     color: "violet.400",
   },
 });
-
 export const Accordion = defineMultiStyleConfigAccordion({ baseStyle });
 
 const theme = extendTheme({

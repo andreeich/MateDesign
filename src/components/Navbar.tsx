@@ -130,6 +130,7 @@ function Navbar() {
             variants={menuVariants}
             initial={false}
             animate={isOpen ? "visible" : "hidden"}
+            // @ts-expect-error FramerMotion transition property
             transition={{ type: "spring", bounce: 0.3, duration: 0.5 }}
             drag="y"
             dragElastic={0.1}

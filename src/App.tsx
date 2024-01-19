@@ -6,6 +6,7 @@ import TeamSection from "./components/TeamSection";
 import ServicesSection from "./components/ServicesSection";
 import ProfitAndPlansSection from "./components/ProfitAndPlansSection";
 import FaqSection from "./components/FaqSection";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <ProfitAndPlansSection />
         <FaqSection />
       </Box>
+      <Footer />
     </>
   );
 }

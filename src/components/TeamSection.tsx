@@ -137,6 +137,7 @@ function TeamSection() {
                 w="60px"
                 borderRadius="full"
                 src={avatar}
+                alt="avatar"
               />
             </Hide>
             dreamteam
@@ -152,6 +153,7 @@ function TeamSection() {
                 w="60px"
                 borderRadius="full"
                 src={avatar}
+                alt="avatar"
               />
             </Show>
           </Heading>

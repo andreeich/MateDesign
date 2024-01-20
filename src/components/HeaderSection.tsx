@@ -40,13 +40,6 @@ function HeaderSection() {
               >
                 We are you <br /> MateDesigners
               </Heading>
-              {/* <Img
-                as={motion.img}
-                src={underline}
-                position="absolute"
-                w="full"
-                bottom={{ base: "-7px", md: "-15px", lg: "-20px" }}
-              /> */}
               <Img
                 as={motion.svg}
                 initial="offscreen"
@@ -57,6 +50,7 @@ function HeaderSection() {
                 xmlns="http://www.w3.org/2000/svg"
                 position="absolute"
                 w="full"
+                alt="underline"
                 bottom={{ base: "-7px", md: "-15px", lg: "-20px" }}
               >
                 <motion.path
@@ -85,6 +79,7 @@ function HeaderSection() {
               transition={{ delay: 0.1 }}
               src={macbookMockup}
               maxH={["220px", "220px", "350px", "600px"]}
+              alt="macbook mockup"
             />
             <MotionImg
               initial={{ x: "5vw" }}
@@ -97,6 +92,7 @@ function HeaderSection() {
               position="absolute"
               top="-30px"
               right="10px"
+              alt="iphone mockup"
             />
           </Box>
         </VStack>

@@ -352,7 +352,7 @@ function PlansSection() {
         >
           <Box as={SplideTrack} w="full" borderRadius="xl">
             {plans.map((plan) => (
-              <VStack as={SplideSlide} key={plan.id} w="full">
+              <VStack as={SplideSlide} key={plan.id} w="full" role="group">
                 <PlanCard
                   heading={plan.heading}
                   badge={plan.badge}

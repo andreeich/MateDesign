@@ -29,7 +29,7 @@ function Footer() {
             direction={{ base: "column", md: "row" }}
             justifyContent={{ md: "space-between" }}
           >
-            <Image src={logo} w="194px" />
+            <Image src={logo} w="194px" alt="MateDesign" />
             <Grid
               templateColumns={{
                 base: "repeat(2, minmax(0, 1fr))",
@@ -44,13 +44,13 @@ function Footer() {
                 direction={{ base: "column", md: "row" }}
                 alignItems={{ md: "center" }}
               >
-                <Link variant="gray" size="2xl">
+                <Link as="button" variant="gray" size="2xl">
                   Why we
                 </Link>
-                <Link variant="gray" size="2xl">
+                <Link as="button" variant="gray" size="2xl">
                   Process
                 </Link>
-                <Link variant="gray" size="2xl">
+                <Link as="button" variant="gray" size="2xl">
                   Services
                 </Link>
               </GridItem>
@@ -60,10 +60,10 @@ function Footer() {
                 direction={{ base: "column", md: "row" }}
                 alignItems={{ md: "center" }}
               >
-                <Link variant="gray" size="2xl">
+                <Link as="button" variant="gray" size="2xl">
                   Compare
                 </Link>
-                <Link variant="gray" size="2xl">
+                <Link as="button" variant="gray" size="2xl">
                   Plans
                 </Link>
               </GridItem>
@@ -89,16 +89,22 @@ function Footer() {
                 © 2022 MateDesign. All rights reserved.
               </Text>
               <Flex rowGap="2" columnGap="4" flexWrap="wrap">
-                <Link variant="light">Privacy Policy</Link>
-                <Link variant="light">Terms of Use</Link>
-                <Link variant="light">hello@matedesign.co</Link>
+                <Link as="button" variant="light">
+                  Privacy Policy
+                </Link>
+                <Link as="button" variant="light">
+                  Terms of Use
+                </Link>
+                <Link as="button" variant="light">
+                  hello@matedesign.co
+                </Link>
               </Flex>
             </Stack>
             <HStack alignSelf={{ base: "end", md: "center" }} gap="3.5">
               <Button variant="tertiary" size="sm">
                 Get Started
               </Button>
-              <Button variant="clear">
+              <Button variant="clear" aria-label="arrow circle up">
                 <ArrowCircleUp w="5" h="5" />
               </Button>
             </HStack>

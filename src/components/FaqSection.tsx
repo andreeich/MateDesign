@@ -138,7 +138,7 @@ function FaqSection() {
               >
                 Didn't find the answer? <br />
                 Shoot us an email{" "}
-                <Link size="2xl" variant="underline">
+                <Link as="button" size="2xl" variant="underline">
                   hello@matedesign.co
                 </Link>
                 .

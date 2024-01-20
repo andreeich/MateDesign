@@ -75,16 +75,16 @@ function Navbar() {
         transition="0.2s background ease-in"
       >
         <HStack h={{ base: "4.5rem", md: "5rem" }} justify="space-between">
-          <Link>
-            <Image src={logo} w="142px" />
+          <Link as="button">
+            <Image src={logo} w="142px" alt="MateDesign" />
           </Link>
           <Show above="md">
             <HStack gap={{ base: "lg", lg: "4xl" }}>
-              <Link>Why us</Link>
-              <Link>Process</Link>
-              <Link>Services</Link>
-              <Link>Compare</Link>
-              <Link>Plans</Link>
+              <Link as="button">Why us</Link>
+              <Link as="button">Process</Link>
+              <Link as="button">Services</Link>
+              <Link as="button">Compare</Link>
+              <Link as="button">Plans</Link>
             </HStack>
           </Show>
           <Show above="md">
@@ -95,7 +95,7 @@ function Navbar() {
           <Hide above="md">
             <AnimatePresence initial={false}>
               <Button
-                aria-label="Burger menu"
+                aria-label="burger menu icon"
                 variant="xclose"
                 size="imd"
                 onClick={setIsOpen.toggle}
@@ -145,7 +145,8 @@ function Navbar() {
             drag="y"
             dragElastic={0.1}
             dragConstraints={{ top: 0, bottom: 0 }}
-            onDragEnd={(e, { offset, velocity }) => {
+            // @ts-expect-error framer motion example
+            onDragEnd={({ offset, velocity }) => {
               const swipe = swipePower(offset.y, velocity.y);
               if (swipe < -swipeConfidenceThreshold) {
                 setIsOpen.off();
@@ -153,19 +154,19 @@ function Navbar() {
             }}
           >
             <VStack py="3xl" gap="md" align="start">
-              <Link size="lg" py="lg" px="xl">
+              <Link as="button" size="lg" py="lg" px="xl">
                 Why us
               </Link>
-              <Link size="lg" py="lg" px="xl">
+              <Link as="button" size="lg" py="lg" px="xl">
                 Process
               </Link>
-              <Link size="lg" py="lg" px="xl">
+              <Link as="button" size="lg" py="lg" px="xl">
                 Services
               </Link>
-              <Link size="lg" py="lg" px="xl">
+              <Link as="button" size="lg" py="lg" px="xl">
                 Compare
               </Link>
-              <Link size="lg" py="lg" px="xl">
+              <Link as="button" size="lg" py="lg" px="xl">
                 Plans
               </Link>
             </VStack>

@@ -131,7 +131,7 @@ function PercentItem({
         flexGrow={1}
       >
         <Heading
-          as="h6"
+          as="h5"
           fontSize="text.xl"
           lineHeight="text.xl"
           fontWeight="600"
@@ -187,7 +187,7 @@ function ProfitSection() {
       <VStack gap="8" w="full">
         <HStack w="full">
           <HStack w="full" justify="center">
-            <Image src={logo} />
+            <Image src={logo} alt="MateDesign" />
           </HStack>
           <Text
             fontSize="text.lg"

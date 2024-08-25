@@ -44,13 +44,13 @@ function Footer() {
                 direction={{ base: "column", md: "row" }}
                 alignItems={{ md: "center" }}
               >
-                <Link as="button" variant="gray" size="2xl">
+                <Link as="button" variant="gray" size="2xl" textAlign="left">
                   Why we
                 </Link>
-                <Link as="button" variant="gray" size="2xl">
+                <Link as="button" variant="gray" size="2xl" textAlign="left">
                   Process
                 </Link>
-                <Link as="button" variant="gray" size="2xl">
+                <Link as="button" variant="gray" size="2xl" textAlign="left">
                   Services
                 </Link>
               </GridItem>
@@ -60,10 +60,10 @@ function Footer() {
                 direction={{ base: "column", md: "row" }}
                 alignItems={{ md: "center" }}
               >
-                <Link as="button" variant="gray" size="2xl">
+                <Link as="button" variant="gray" size="2xl" textAlign="left">
                   Compare
                 </Link>
-                <Link as="button" variant="gray" size="2xl">
+                <Link as="button" variant="gray" size="2xl" textAlign="left">
                   Plans
                 </Link>
               </GridItem>

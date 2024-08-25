@@ -69,7 +69,9 @@ function HeaderSection() {
               Design subsriptions to scale your business
             </Text>
           </VStack>
-          <Button variant="primary">See plans</Button>
+          <Button variant="primary" size="md">
+            See plans
+          </Button>
           <Box position="relative">
             <MotionImg
               initial={{ x: "-5vw" }}

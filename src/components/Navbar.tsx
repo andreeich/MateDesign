@@ -146,7 +146,7 @@ function Navbar() {
             dragElastic={0.1}
             dragConstraints={{ top: 0, bottom: 0 }}
             // @ts-expect-error framer motion example
-            onDragEnd={({ offset, velocity }) => {
+            onDragEnd={(e, { offset, velocity }) => {
               const swipe = swipePower(offset.y, velocity.y);
               if (swipe < -swipeConfidenceThreshold) {
                 setIsOpen.off();

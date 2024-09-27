@@ -1,27 +1,59 @@
-# React + TypeScript + Vite
+# MateDesign
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**MateDesign** is a training project that demonstrates proficiency in design implementation and responsive development. Inspired by a concept design found on Pinterest, the design was recreated in Figma for three breakpoints and then built using modern web technologies.
 
-Currently, two official plugins are available:
+![Landing page image](/matedesign-home.jpg)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- Responsive design implemented for three breakpoints
+- Smooth animations for an interactive user experience
+- Built as a practice project to refine design-to-development workflow
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Tech Stack
 
-- Configure the top-level `parserOptions` property like this:
+- **Build Tool**: Vite
+- **Frontend**: React.js
+- **UI Components**: ChakraUI
+- **Styling**: Tailwind CSS
+- **Animation**: Framer Motion
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+## Installation
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/your-username/matedesign.git
+   cd matedesign
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+## Scripts
+
+- **dev**: Start the development server.
+- **build**: Create a production build.
+- **lint**: Run the linter for code quality checks.
+- **preview**: Preview the production build.
+
+## Design
+
+The design was implemented based on a concept found on Pinterest and recreated in **Figma** for three screen sizes (mobile, tablet, desktop). The goal was to practice design replication and responsive development techniques.
+
+## Contributing
+
+This project is primarily for learning purposes, but feel free to open issues or contribute if you'd like.
+
+## License
+
+This project is licensed under the MIT License.
